@@ -5,20 +5,28 @@
  * @date 2021/02/18
  */
 
+@import '../../node_modules/antd/dist/antd.css';
+
 body {
-    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 a.plain-link {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 a.plain-link:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 #reactContainer {
-    width: 100%;
-    height: 100%;
-    position: fixed;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }

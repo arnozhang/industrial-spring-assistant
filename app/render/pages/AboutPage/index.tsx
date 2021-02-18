@@ -21,8 +21,8 @@ const AboutPage = () => {
         <span style={styles.appName}>工业弹簧速查助手</span>
       </div>
       <span style={{ marginTop: 20, color: '#666' }}>
-                    {packageJson.version} @Author
-            </span>
+        {packageJson.version} @Author
+      </span>
     </div>
   );
 };

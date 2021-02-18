@@ -12,6 +12,8 @@ import { renderToHtml } from '@/common/commonDeclares';
 import RouterPageWrapper from '@/pages/RouterPageWrapper';
 import ButterflySpring from '@/pages/ButterflySpring';
 
+require('@/global.less');
+
 const history = createBrowserHistory();
 
 const HomePage = () => {

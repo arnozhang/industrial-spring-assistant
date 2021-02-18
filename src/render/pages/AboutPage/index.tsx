@@ -5,7 +5,6 @@
  */
 
 import * as React from 'react';
-import { renderToHtml } from '@/common/commonDeclares';
 import styles from './index.less';
 
 const packageJson = require('../../../../package.json');
@@ -28,4 +27,4 @@ const AboutPage = () => {
 };
 
 
-const aboutPage = renderToHtml(<AboutPage />);
+export default AboutPage;

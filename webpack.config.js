@@ -6,13 +6,12 @@ module.exports = {
 
   target: 'electron-renderer',
   entry: {
-    'index': './index.ts',
-    'app/HomePage': './app/render/pages/HomePage/index.tsx',
-    'app/AboutPage': './app/render/pages/AboutPage/index.tsx',
+    'index': './src/main/index.ts',
+    'render': './src/render/render.tsx',
   },
 
   output: {
-    path: path.resolve(__dirname, './dist/build'),
+    path: path.resolve(__dirname, './build/'),
     filename: '[name].js'
   },
 
@@ -26,7 +25,7 @@ module.exports = {
   resolve: {
     extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js', '.json',],
     alias: {
-      '@': path.resolve('./app/render'),
+      '@': path.resolve('./src/render'),
     },
   },
 
@@ -42,7 +41,7 @@ module.exports = {
       },
       {
         test: /\.tsx?$/,
-        exclude: /(node_modules|dist)/,
+        exclude: /(node_modules|build|dist)/,
         use: [
           'ts-loader',
         ],
@@ -50,6 +49,7 @@ module.exports = {
       {
         test: /\.js$/,
         enforce: 'pre',
+        exclude: /(node_modules|build|dist)/,
         loader: 'source-map-loader',
       },
     ],

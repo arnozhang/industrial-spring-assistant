@@ -2,21 +2,28 @@
   "compilerOptions": {
     "jsx": "react",
     "allowJs": true,
-    "outDir": "./dist/build/",
+    "outDir": "./build/",
     "sourceMap": true,
     "noImplicitAny": true,
+    "noUnusedLocals": true,
     "removeComments": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "forceConsistentCasingInFileNames": true,
     "module": "commonjs",
     "target": "es5",
     "baseUrl": ".",
     "paths": {
       "@/*": [
-        "./app/render/*"
+        "./src/render/*"
       ]
     }
   },
   "exclude": [
     "node_modules",
+    "build",
     "dist"
   ]
 }

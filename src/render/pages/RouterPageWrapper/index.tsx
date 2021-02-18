@@ -6,8 +6,8 @@
  */
 
 import * as React from 'react';
-import { ReactFCProps } from '@/common/commonDeclares';
 import styles from './index.less';
+import { ReactFCProps } from "@/common/renderDeclares";
 
 
 const RouterPageWrapper = (props: ReactFCProps) => {

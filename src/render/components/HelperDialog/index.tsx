@@ -26,7 +26,7 @@ const HelperDialog = (props: IProps) => {
       visible={visible}
       title={title || '帮助信息'}
       width="40%"
-      okText="OK"
+      okText="确定"
       style={{ minWidth: 720 }}
       cancelButtonProps={{ style: { display: 'none' } }}
       onCancel={() => setVisible(false)}

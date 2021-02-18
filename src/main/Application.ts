@@ -6,15 +6,15 @@
  */
 
 import * as electron from 'electron';
-import ApplicationMainWindow from './window/ApplicationMainWindow';
+import MainWindow from './window/MainWindow';
 
-const { app, globalShortcut, BrowserWindow, ipcMain } = electron;
+const { app, globalShortcut, BrowserWindow } = electron;
 
 
 export default class Application {
 
-  private mMainWindow = new ApplicationMainWindow();
-  public static readonly mAppEnv = process.env.NODE_ENV;
+  private mainWindow = new MainWindow();
+  public static readonly appEnv = process.env.NODE_ENV;
 
 
   initialize(): void {
@@ -22,13 +22,13 @@ export default class Application {
   }
 
   protected createMainWindow() {
-    this.mMainWindow.initialize();
-    this.mMainWindow.create();
+    this.mainWindow.initialize();
+    this.mainWindow.create();
     this.initializeGlobalShortcut();
   }
 
   static isRelease() {
-    return Application.mAppEnv === 'release';
+    return Application.appEnv === 'release';
   }
 
   private initializeEvents() {
@@ -37,13 +37,13 @@ export default class Application {
     });
 
     app.on('activate', () => {
-      if (this.mMainWindow == null || this.mMainWindow.isClosed()) {
+      if (this.mainWindow == null || this.mainWindow.isClosed()) {
         this.createMainWindow();
       }
     });
 
     app.on('window-all-closed', () => {
-      this.mMainWindow.preQuitApp();
+      this.mainWindow.preQuitApp();
       app.quit();
     });
   }

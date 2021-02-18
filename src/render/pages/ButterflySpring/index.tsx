@@ -19,7 +19,7 @@ const ButterflySpring = () => {
       <div className="row">
         <InfoCircleOutlined />
         <span style={{ marginLeft: 5, flex: 1 }}>
-          仅考虑t&lt;=6时，无支撑面的碟簧!
+          仅考虑 t&lt;=6 时，无支撑面的碟簧!
         </span>
 
         <Button onClick={clickShowHelperDialog(ButterflySpringHelper)}>帮助信息</Button>

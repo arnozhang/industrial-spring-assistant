@@ -8,8 +8,8 @@
 import * as React from 'react';
 import { useState } from 'react';
 import { InputNumber } from 'antd';
+import { ReactFCProps } from "@/common/renderDeclares";
 import styles from './index.less';
-import { ReactFCProps } from "@/common/commonDeclares";
 
 
 interface IProps extends ReactFCProps {

@@ -9,17 +9,6 @@ import { PropsWithChildren } from 'react';
 import * as ReactDOM from 'react-dom';
 
 
-export interface MapT<T> {
-
-  [key: string]: T;
-}
-
-
-export type VoidFunction = () => void;
-export type OneArgFunction = (data?: any) => void;
-export type OneArgFunctionT<T> = (data: T) => void;
-
-
 export interface IProps {
 
   [key: string]: any;

@@ -5,7 +5,7 @@
  * @date 2021/02/18
  */
 
-import Application from './app/main/Application';
+import Application from './Application';
 
 
 const application = new Application();

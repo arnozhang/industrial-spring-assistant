@@ -6,7 +6,7 @@
   "main": "./build/index.js",
   "scripts": {
     "build": "webpack",
-    "build-prod": "webpack --define process.env.NODE_ENV='\"prod\"'",
+    "build-prod": "NODE_ENV=prod webpack --progress",
     "start": "electron .",
     "package": "electron-builder -mw",
     "package-mac": "electron-builder -m",

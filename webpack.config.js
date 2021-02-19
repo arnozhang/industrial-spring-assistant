@@ -3,7 +3,7 @@ const path = require('path');
 
 
 const isProduction = process.env.NODE_ENV === 'prod';
-
+console.log(`\nbuild for ${process.env.NODE_ENV} environment...\n`);
 
 module.exports = {
   mode: isProduction ? 'production' : 'development',

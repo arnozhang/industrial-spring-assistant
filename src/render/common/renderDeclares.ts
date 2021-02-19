@@ -1,11 +1,12 @@
 /**
  * industrial-spring-assistant
  *
+ * @author arnozhang
  * @date 2021/02/18
  */
 
 import * as React from 'react';
-import { PropsWithChildren } from 'react';
+import { CSSProperties, PropsWithChildren } from 'react';
 import * as ReactDOM from 'react-dom';
 
 
@@ -13,6 +14,7 @@ export interface IProps {
 
   [key: string]: any;
 
+  style?: CSSProperties;
   children?: any;
 }
 

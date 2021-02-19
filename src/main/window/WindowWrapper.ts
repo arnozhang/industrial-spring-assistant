@@ -82,7 +82,7 @@ export default class WindowWrapper {
   }
 
   afterWindowCreated(): void {
-    if (!Application.isRelease()) {
+    if (!Application.isProd()) {
       this.window.webContents.openDevTools();
     }
   }

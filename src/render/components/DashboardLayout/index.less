@@ -1,0 +1,95 @@
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  color: #0089ff;
+  text-align: center;
+  background: #fff;
+
+  img {
+    height: 40px;
+    transition: all 0.2s ease-in;
+  }
+}
+
+:global(.ant-layout-sider-collapsed) {
+  .logoName {
+    margin-right: -133px;
+    opacity: 0;
+  }
+}
+
+.header {
+  position: relative;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  height: 64px;
+  padding-right: 32px;
+  background: #fff;
+  box-shadow: 0 1px 4px 0 rgba(0, 21, 41, 0.12);
+
+  .left {
+    display: flex;
+    align-items: center;
+    line-height: 64px;
+  }
+
+  .collapse {
+    padding: 22px;
+    font-size: 20px;
+    border-right: 1px solid #ccc;
+  }
+
+  .menu {
+    width: 64px;
+    font-size: 20px;
+    text-align: center;
+    border-right: 1px solid #e5e5e5;
+    cursor: pointer;
+  }
+}
+
+.nav-left {
+  display: flex;
+  margin-left: 24px;
+  line-height: 32px;
+  cursor: pointer;
+
+  .nav-left-avatar {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 32px;
+    text-align: center;
+    border-radius: 7px;
+  }
+
+  .nav-left-workspace-name {
+    color: rgba(0, 0, 0, 0.85);
+    font-weight: 500;
+    font-size: 16px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-flow: column;
+  border-left: 1px solid #e5e5e5;
+
+  .container {
+    flex: 1;
+    overflow: auto;
+  }
+}
+
+.footer {
+  color: #77787a;
+  line-height: 64px;
+  text-align: center;
+  background: #f0f2f5;
+}

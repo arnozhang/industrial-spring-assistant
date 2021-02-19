@@ -10,7 +10,7 @@ import { Route, Router } from 'react-router';
 import { createBrowserHistory } from 'history';
 import { parseUrlParams } from "@/common/utils";
 import { renderToHtml } from "@/common/renderDeclares";
-import RouterPageWrapper from '@/pages/RouterPageWrapper';
+import DashboardLayout from "@/components/DashboardLayout";
 import ButterflySpring from '@/pages/ButterflySpring';
 import AboutPage from "@/pages/AboutPage";
 
@@ -18,13 +18,22 @@ require('@/global.less');
 
 const history = createBrowserHistory();
 
+const wrapDashboardComponent = (component: React.ComponentType<any>) => {
+  return () => {
+    return (
+      <DashboardLayout>
+        {React.createElement(component)}
+      </DashboardLayout>
+    );
+  };
+}
+
 const HomePageRouter = () => {
 
   return (
     <Router history={history}>
-      <Route path="/" component={RouterPageWrapper}>
-        <Route path="/" component={ButterflySpring} />
-      </Route>
+      <Route path="/" component={wrapDashboardComponent(ButterflySpring)} />
+      <Route path="/butterflySpring" component={wrapDashboardComponent(ButterflySpring)} />
     </Router>
   );
 }

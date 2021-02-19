@@ -2,7 +2,11 @@ const webpack = require('webpack');
 const path = require('path');
 
 
+const isProduction = process.env.NODE_ENV === 'prod';
+
+
 module.exports = {
+  mode: isProduction ? 'production' : 'development',
 
   target: 'electron-renderer',
   entry: {
@@ -23,7 +27,7 @@ module.exports = {
   devtool: 'source-map',
 
   resolve: {
-    extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js', '.json',],
+    extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js', '.json', '.less',],
     alias: {
       '@': path.resolve('./src/render'),
     },

@@ -17,6 +17,7 @@ interface IProps extends ReactFCProps {
   label: string;
   unit?: string;
   disabled?: boolean;
+  display?: boolean;
   defaultValue?: number;
 }
 
@@ -28,12 +29,16 @@ const InputValue = (props: IProps) => {
     <div className={styles.container}>
       <span className={styles.label}>{props.label}</span>
 
-      <InputNumber
-        className={styles.input}
-        value={value}
-        disabled={props.disabled}
-        onChange={v => setValue(v as number)}
-      />
+      {props.display ? (
+        <span className={styles.display}>{value}</span>
+      ) : (
+        <InputNumber
+          className={styles.input}
+          value={value}
+          disabled={props.disabled}
+          onChange={v => setValue(v as number)}
+        />
+      )}
 
       <span className={styles.unit}>{props.unit || ''}</span>
     </div>

@@ -27,8 +27,8 @@ export default class Application {
     this.initializeGlobalShortcut();
   }
 
-  static isRelease() {
-    return Application.appEnv === 'release';
+  static isProd() {
+    return Application.appEnv === 'prod';
   }
 
   private initializeEvents() {
@@ -49,7 +49,7 @@ export default class Application {
   }
 
   private initializeGlobalShortcut() {
-    if (!Application.isRelease()) {
+    if (!Application.isProd()) {
       globalShortcut.register('CmdOrCtrl+Alt+P', () => {
         BrowserWindow.getFocusedWindow().webContents.toggleDevTools();
       });

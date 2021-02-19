@@ -41,7 +41,7 @@ const DashboardLayout = (props: ReactFCProps) => {
 
   return (
     <ConfigProvider locale={zhCN}>
-      <Layout>
+      <Layout style={{height: '100%'}}>
         <Layout.Sider width={240} collapsed={collapsed}>
           <Logo />
 

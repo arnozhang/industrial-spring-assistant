@@ -7,6 +7,7 @@
 
 import * as electron from 'electron';
 import WindowWrapper from './WindowWrapper';
+import { SubPages } from "../../common/commonDeclares";
 
 const { app, Menu } = electron;
 
@@ -33,7 +34,7 @@ export default class MainWindow extends WindowWrapper {
   private static onAboutClicked(): void {
     new WindowWrapper().createWindow({
       title: 'About App',
-      search: 'page=about',
+      search: `page=${SubPages.AboutPage}`,
       width: 400,
       height: 300,
     });

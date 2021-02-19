@@ -21,7 +21,9 @@ const ContentGroup = (props: IProps) => {
     <div className={styles.container} style={props.style}>
       <span className={styles.label}>{props.label}</span>
 
-      {props.children}
+      <div className={styles.content}>
+        {props.children}
+      </div>
     </div>
   );
 };

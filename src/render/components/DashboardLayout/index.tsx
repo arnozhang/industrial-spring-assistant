@@ -55,16 +55,14 @@ const DashboardLayout = (props: ReactFCProps) => {
                 {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined)}
               </span>
 
-              <span>工业弹簧速查助手</span>
+              <h2 className={styles.title}>工业弹簧速查助手</h2>
             </div>
-
-            <div style={{ flex: 1, }} />
           </header>
 
           <div className={styles.container}>
             {props.children}
           </div>
-          <div className={styles.footer}>©2020 Jugg</div>
+          <div className={styles.footer}>©2021 Jugg</div>
         </Layout.Content>
       </Layout>
     </ConfigProvider>

@@ -25,8 +25,17 @@ a.plain-link:hover {
   position: fixed;
 }
 
-.row {
+.flex-1 {
+  flex: 1;
+}
+
+.flex-row {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
 }

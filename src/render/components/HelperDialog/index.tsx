@@ -9,9 +9,10 @@ import * as React from 'react';
 import { ReactElement, useState } from 'react';
 import * as ReactDOM from 'react-dom';
 import { Modal } from 'antd';
+import { ReactFCProps } from "@/common/renderDeclares";
 
 
-interface IProps {
+interface IProps extends ReactFCProps {
   title?: string;
   content: ReactElement;
   afterClose: () => void;

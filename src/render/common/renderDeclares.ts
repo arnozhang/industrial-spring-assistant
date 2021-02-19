@@ -15,6 +15,7 @@ export interface IProps {
   [key: string]: any;
 
   style?: CSSProperties;
+  className?: string;
   children?: any;
 }
 

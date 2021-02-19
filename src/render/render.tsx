@@ -13,6 +13,7 @@ import { renderToHtml } from "@/common/renderDeclares";
 import DashboardLayout from "@/components/DashboardLayout";
 import ButterflySpring from '@/pages/ButterflySpring';
 import AboutPage from "@/pages/AboutPage";
+import { SubPages } from "../common/commonDeclares";
 
 require('@/global.less');
 
@@ -41,7 +42,7 @@ const HomePageRouter = () => {
 
 const params = parseUrlParams();
 
-if (params.page === 'about') {
+if (params.page === SubPages.AboutPage) {
   renderToHtml(<AboutPage />);
 } else {
   renderToHtml(<HomePageRouter />);

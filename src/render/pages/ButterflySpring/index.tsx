@@ -7,21 +7,18 @@
 
 import * as React from 'react';
 import { Button } from "antd";
-import { InfoCircleOutlined } from '@ant-design/icons';
+import Tips from "@/components/Tips";
 import InputValue from "@/components/InputValue";
+import ContentGroup from "@/components/ContentGroup";
 import { clickShowHelperDialog } from "@/components/HelperDialog";
 import ButterflySpringHelper from "./helper";
-import ContentGroup from "@/components/ContentGroup";
 
 
 const ButterflySpring = () => {
   return (
     <div>
-      <div className="row">
-        <InfoCircleOutlined />
-        <span style={{ marginLeft: 5, flex: 1 }}>
-          仅考虑 t&lt;=6 时，无支撑面的碟簧!
-        </span>
+      <div className="flex-row">
+        <Tips tips="仅考虑 t&lt;=6 时，无支撑面的碟簧!" />
 
         <Button onClick={clickShowHelperDialog(ButterflySpringHelper)}>帮助信息</Button>
       </div>

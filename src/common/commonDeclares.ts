@@ -7,3 +7,8 @@
 export type VoidFunction = () => void;
 export type OneArgFunction = (data?: any) => void;
 export type OneArgFunctionT<T> = (data: T) => void;
+
+
+export enum SubPages {
+  AboutPage = 'about',
+}

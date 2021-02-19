@@ -32,3 +32,13 @@ export function renderToHtml<T extends Element>(element: any): T {
   return ReactDOM.render(
     element, document.getElementById('reactContainer'));
 }
+
+
+export interface ValueWrapper<T extends any> {
+
+  value: T;
+
+  setValue(newValue: T): void;
+}
+
+export declare type NumberValueWrapper = ValueWrapper<number>;

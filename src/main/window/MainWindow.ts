@@ -6,8 +6,8 @@
  */
 
 import * as electron from 'electron';
+import { SubPages } from "@@/common/commonDeclares";
 import WindowWrapper from './WindowWrapper';
-import { SubPages } from "../../common/commonDeclares";
 
 const { app, Menu } = electron;
 

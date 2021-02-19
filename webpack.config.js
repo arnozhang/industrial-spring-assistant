@@ -29,6 +29,7 @@ module.exports = {
   resolve: {
     extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js', '.json', '.less',],
     alias: {
+      '@@': path.resolve('./src'),
       '@': path.resolve('./src/render'),
     },
   },

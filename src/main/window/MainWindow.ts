@@ -33,7 +33,7 @@ export default class MainWindow extends WindowWrapper {
 
   private static onAboutClicked(): void {
     new WindowWrapper().createWindow({
-      title: 'About App',
+      title: '关于',
       search: `page=${SubPages.AboutPage}`,
       width: 400,
       height: 300,
@@ -45,7 +45,7 @@ export default class MainWindow extends WindowWrapper {
     const aboutSubMenu = {
       label: app.getName(),
       submenu: [
-        { label: 'About', click: MainWindow.onAboutClicked.bind(this) },
+        { label: '关于', click: MainWindow.onAboutClicked.bind(this) },
         { type: 'separator' },
         { role: 'quit' },
       ],

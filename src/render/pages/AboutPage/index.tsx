@@ -12,15 +12,16 @@ const packageJson = require('../../../../package.json');
 
 const AboutPage = () => {
   return (
-    <div style={styles.root}>
-      <div style={styles.title}>
-        <img style={{ width: 50, height: 50 }} alt=""
+    <div className={styles.root}>
+      <div className={styles.title}>
+        <img style={{ width: 50, height: 50 }} alt="logo"
              src="../images/app-icon.png" />
 
-        <span style={styles.appName}>工业弹簧速查助手</span>
+        <span className={styles.appName}>工业弹簧速查助手</span>
       </div>
+
       <span style={{ marginTop: 20, color: '#666' }}>
-        {packageJson.version} @Author
+        V{packageJson.version} ©2021 Jugg
       </span>
     </div>
   );

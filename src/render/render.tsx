@@ -12,6 +12,7 @@ import { parseUrlParams } from "@/common/utils";
 import { renderToHtml } from "@/common/renderDeclares";
 import DashboardLayout from "@/components/DashboardLayout";
 import ButterflySpring from '@/pages/ButterflySpring';
+import PullSpring from "@/pages/PullSpring";
 import AboutPage from "@/pages/AboutPage";
 import { SubPages } from "../common/commonDeclares";
 
@@ -33,8 +34,9 @@ const HomePageRouter = () => {
 
   return (
     <Router history={history}>
-      <Route path="/" component={wrapDashboardComponent(ButterflySpring)} />
+      <Route path="/" component={wrapDashboardComponent(PullSpring)} />
       <Route path="/butterflySpring" component={wrapDashboardComponent(ButterflySpring)} />
+      <Route path="/pullSpring" component={wrapDashboardComponent(PullSpring)} />
     </Router>
   );
 }

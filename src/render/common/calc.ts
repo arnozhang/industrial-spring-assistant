@@ -9,6 +9,9 @@ export namespace calc {
 
   export const PI = 3.141592654;
 
+  export const SMALL_PI = 3.14;
+
+
   export function round(value: number, precision: number = 0) {
     return Math.round(`${+value}e${precision}` as any) / Math.pow(10, precision);
   }

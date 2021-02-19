@@ -2,30 +2,27 @@
  * industrial-spring-assistant.
  *
  * @author arnozhang
- * @date 2021/02/18
+ * @date 2021/02/19
  */
 
 import * as React from 'react';
 import { useState } from 'react';
-import { InputNumber } from 'antd';
-import { NumberValueWrapper, ReactFCProps } from "@/common/renderDeclares";
-import styles from './index.less';
+import { Select } from 'antd';
 import { JsUtils } from "js-utils-lite";
+import { NumberValueWrapper, ReactFCProps } from "@/common/renderDeclares";
+import { EnumValueType } from "@/common/baseModel";
+import styles from './index.less';
 
 
 interface IProps extends ReactFCProps {
 
   label: string;
-  unit?: string;
-  extra?: React.ReactNode;
-
-  disabled?: boolean;
-  display?: boolean;
+  options: EnumValueType;
   value?: number | NumberValueWrapper;
 }
 
 
-const InputValue = (props: IProps) => {
+const SelectValue = (props: IProps) => {
   let propsValue: any = props.value;
   let propsValueChanged: (v: number) => void = undefined;
 
@@ -41,27 +38,30 @@ const InputValue = (props: IProps) => {
     <div className={styles.container}>
       <span className={styles.label}>{props.label}</span>
 
-      {props.display ? (
-        <span className={styles.display}>{propsValue}</span>
-      ) : (
-        <InputNumber
-          className={styles.input}
-          value={value}
-          disabled={props.disabled}
-          onChange={v => {
-            const val = v as number;
+      <Select
+        className={styles.select}
+        value={value}
+        onChange={v => {
+          const val = v as number;
 
-            setValue(val);
-            propsValueChanged && propsValueChanged(val);
-          }}
-        />
-      )}
+          setValue(val);
+          propsValueChanged && propsValueChanged(val);
+        }}
+      >
+        {Object.keys(props.options).map(key => {
+          const item = props.options[key];
 
-      <span className={styles.unit}>
-        {props.extra ? props.extra : (props.unit || '')}
-      </span>
+          return (
+            <Select.Option key={item.value} value={item.value}>
+              {item.label}
+            </Select.Option>
+          );
+        })}
+      </Select>
+
+      <span className={styles.pad} />
     </div>
   );
 };
 
-export default InputValue;
+export default SelectValue;

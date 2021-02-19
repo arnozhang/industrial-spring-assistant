@@ -8,6 +8,19 @@
 import { NumberValueWrapper } from "@/common/renderDeclares";
 import { VoidFunction } from "@@/common/commonDeclares";
 
+
+export interface EnumValueItem {
+
+  label: string;
+  value: any;
+}
+
+export interface EnumValueType {
+
+  [key: string]: EnumValueItem;
+}
+
+
 export default abstract class BaseModel {
 
   onValueRefreshed: VoidFunction;

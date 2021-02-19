@@ -7,13 +7,18 @@
 
 import * as React from 'react';
 import { useState } from 'react';
+import { useHistory } from "react-router";
 import { ConfigProvider, Layout } from 'antd';
-import { MenuFoldOutlined, MenuUnfoldOutlined, PicCenterOutlined } from '@ant-design/icons';
+import {
+  AlignCenterOutlined,
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
+  PicCenterOutlined
+} from '@ant-design/icons';
 import { ReactFC, ReactFCProps } from "@/common/renderDeclares";
 import { createMenu, INavMenu } from "@/common/menu";
 import zhCN from 'antd/es/locale/zh_CN';
 import styles from './index.less';
-import { useHistory } from "react-router";
 
 
 const Logo: ReactFC = () => {
@@ -32,6 +37,12 @@ const menus: INavMenu[] = [
     icon: <PicCenterOutlined />,
     menuUrl: '/butterflySpring',
   },
+  {
+    menuPath: 'pullSpring',
+    displayName: '拉簧',
+    icon: <AlignCenterOutlined />,
+    menuUrl: '/pullSpring',
+  },
 ];
 
 
@@ -41,7 +52,7 @@ const DashboardLayout = (props: ReactFCProps) => {
 
   return (
     <ConfigProvider locale={zhCN}>
-      <Layout style={{height: '100%'}}>
+      <Layout style={{ height: '100%' }}>
         <Layout.Sider width={240} collapsed={collapsed}>
           <Logo />
 

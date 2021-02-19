@@ -18,6 +18,9 @@ import ButterflySpringModel from "./model";
 
 const module = new ButterflySpringModel();
 
+/**
+ * 蝶形弹簧
+ */
 const ButterflySpring = () => {
   const [, forceUpdate] = useReducer(x => x + 1, 0);
   module.onValueRefreshed = forceUpdate;

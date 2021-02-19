@@ -39,7 +39,15 @@ module.exports = {
         test: /\.less$/,
         use: [
           'style-loader',
-          'css-loader?modules',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[name]_[local]_[hash:base64:6]',
+                exportLocalsConvention: 'camelCase',
+              },
+            },
+          },
           'less-loader',
         ],
       },

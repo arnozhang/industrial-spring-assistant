@@ -1,14 +1,16 @@
 {
   "name": "industrial-spring-assistant",
   "version": "1.0.0",
-  "description": "industrial Spring assistant",
+  "description": "工业弹簧速查助手 - industrial Spring assistant",
+  "author": "arnozhang",
   "main": "./build/index.js",
   "scripts": {
-    "compile": "tsc",
     "build": "webpack",
-    "build-release": "webpack --define process.env.NODE_ENV='\"release\"'",
+    "build-prod": "webpack --define process.env.NODE_ENV='\"release\"'",
     "start": "electron .",
-    "package": "electron-packager ./ industrial-spring-assistant --overwrite --app-version=1.0.0 --platform=darwin --arch=all --out=../industrial-spring-assistant --version=1.6.3 --icon=./public/images/app-icon.icns"
+    "package": "electron-builder -mw",
+    "package-mac": "electron-builder -m",
+    "package-win": "electron-builder -w"
   },
   "keywords": [
     "industrial-spring-assistant",
@@ -20,7 +22,6 @@
   "dependencies": {
     "@ant-design/icons": "^4.5.0",
     "antd": "^4.12.3",
-    "electron": "^11.2.3",
     "js-utils-lite": "^2.0.0",
     "query-string": "^6.14.0",
     "react": "^17.0.1",
@@ -35,6 +36,8 @@
     "@types/react-router": "^5.1.11",
     "@types/react-router-dom": "^5.1.7",
     "css-loader": "^5.0.2",
+    "electron": "^11.2.3",
+    "electron-builder": "^22.9.1",
     "electron-reload": "^1.5.0",
     "less": "^4.1.1",
     "less-loader": "^8.0.0",
@@ -42,6 +45,59 @@
     "style-loader": "^2.0.0",
     "ts-loader": "^8.0.17",
     "typescript": "^4.1.5",
-    "webpack": "^5.22.0"
+    "webpack": "^5.22.0",
+    "webpack-cli": "^4.5.0"
+  },
+  "build": {
+    "asar": true,
+    "productName": "工业弹簧速查助手",
+    "appId": "com.jugg.spring.assistant",
+    "copyright": "Copyright © Jugg",
+    "directories": {
+      "output": "pack"
+    },
+    "files": [
+      "./build/**",
+      "./public/**",
+      "./node_modules/antd/dist/antd.css"
+    ],
+    "mac": {
+      "identity": "com.jugg.spring.assistant",
+      "target": [
+        "dmg"
+      ],
+      "artifactName": "${productName}.${ext}",
+      "icon": "./public/images/app-icon.icns"
+    },
+    "dmg": {
+      "title": "${productName}",
+      "artifactName": "${productName}.${ext}",
+      "icon": "./public/images/app-icon.icns"
+    },
+    "win": {
+      "legalTrademarks": "Copyright © Jugg",
+      "publisherName": "Jugg",
+      "requestedExecutionLevel": "highestAvailable",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "ia32",
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "${productName}.${ext}",
+      "icon": "./public/images/app-icon.icns"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowElevation": true,
+      "runAfterFinish": true,
+      "allowToChangeInstallationDirectory": true,
+      "shortcutName": "工业弹簧速查助手",
+      "artifactName": "${productName}-installer-V${version}.${ext}"
+    }
   }
 }

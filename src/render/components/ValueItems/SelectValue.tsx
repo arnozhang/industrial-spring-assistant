@@ -2,35 +2,30 @@
  * industrial-spring-assistant.
  *
  * @author arnozhang
- * @date 2021/02/19
+ * @date 2021/02/18
  */
 
 import * as React from 'react';
 import { useState } from 'react';
 import { Select } from 'antd';
-import { JsUtils } from "js-utils-lite";
-import { NumberValueWrapper, ReactFCProps } from "@/common/renderDeclares";
 import { EnumValueType } from "@/common/baseModel";
+import {
+  getPropsValue,
+  getPropsValueChanged,
+  IBaseValueProps
+} from "@/components/ValueItems/index";
 import styles from './index.less';
 
 
-interface IProps extends ReactFCProps {
+interface IProps extends IBaseValueProps {
 
-  label: string;
   options: EnumValueType;
-  value?: number | NumberValueWrapper;
 }
 
 
 const SelectValue = (props: IProps) => {
-  let propsValue: any = props.value;
-  let propsValueChanged: (v: number) => void = undefined;
-
-  if (!JsUtils.isNumber(props.value)) {
-    const wrapper = props.value as NumberValueWrapper;
-    propsValue = wrapper.value;
-    propsValueChanged = wrapper.setValue;
-  }
+  const propsValue = getPropsValue(props.value);
+  const propsValueChanged = getPropsValueChanged(props.value);
 
   const [value, setValue] = useState(propsValue || 0);
 

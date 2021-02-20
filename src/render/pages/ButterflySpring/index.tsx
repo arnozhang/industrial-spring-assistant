@@ -9,21 +9,28 @@ import * as React from 'react';
 import { useReducer } from 'react';
 import { Button } from "antd";
 import Tips from "@/components/Tips";
-import InputValue from "@/components/InputValue";
+import DisplayValue from "@/components/ValueItems/DisplayValue";
+import InputValue from "@/components/ValueItems/InputValue";
 import ContentGroup from "@/components/ContentGroup";
 import { clickShowHelperDialog } from "@/components/HelperDialog";
 import ButterflySpringHelper from "./helper";
 import ButterflySpringModel from "./model";
 
 
-const module = new ButterflySpringModel();
+interface IProps {
+
+  model: ButterflySpringModel;
+}
+
 
 /**
  * 蝶形弹簧
  */
-const ButterflySpring = () => {
-  const [, forceUpdate] = useReducer(x => x + 1, 0);
-  module.onValueRefreshed = forceUpdate;
+const ButterflySpring = (props: IProps) => {
+  const [, forceUpdate] = useReducer(x => x + 1, 0, undefined);
+  const { model } = props;
+
+  model.onValueRefreshed = forceUpdate;
 
   return (
     <div>
@@ -36,46 +43,48 @@ const ButterflySpring = () => {
       </div>
 
       <ContentGroup label="材料参数">
-        <InputValue label="弹性模量" value={module.elasticModulus} unit="Mpa" />
-        <InputValue label="屈服极限" value={module.yieldLimit} unit="Mpa" />
+        <InputValue label="弹性模量" value={model.elasticModulus} unit="Mpa" />
+        <InputValue label="屈服极限" value={model.yieldLimit} unit="Mpa" />
 
-        <InputValue label="泊松比" value={module.poissonRatio} />
+        <InputValue label="泊松比" value={model.poissonRatio} />
       </ContentGroup>
 
       <ContentGroup label="碟簧参数">
-        <InputValue label="外径" value={module.outsideDiameter} unit="mm" />
-        <InputValue label="内径" value={module.innerDiameter} unit="mm" />
-        <InputValue label="厚度" value={module.thickness} unit="mm" />
-        <InputValue label="高度" value={module.height} unit="mm" />
+        <InputValue label="外径" value={model.outsideDiameter} unit="mm" />
+        <InputValue label="内径" value={model.innerDiameter} unit="mm" />
+        <InputValue label="厚度" value={model.thickness} unit="mm" />
+        <InputValue label="高度" value={model.height} unit="mm" />
       </ContentGroup>
 
       <ContentGroup label="碟簧特性">
-        <InputValue label="旋绕比" value={module.spinRatio} display />
-        <InputValue label="h0/t" value={module.h0DivT} display />
-        <InputValue label="全变形量" value={module.fullDeformationAmount} display />
+        <DisplayValue label="旋绕比" value={model.spinRatio} />
+        <DisplayValue label="h0/t" value={model.h0DivT} />
+        <DisplayValue label="全变形量" value={model.fullDeformationAmount} />
       </ContentGroup>
 
       <ContentGroup label="系数计算">
-        <InputValue label="K1" value={module.k1} display />
-        <InputValue label="K2" value={module.k2} display />
-        <InputValue label="K3" value={module.k3} display />
+        <DisplayValue label="K1" value={model.k1} />
+        <DisplayValue label="K2" value={model.k2} />
+        <DisplayValue label="K3" value={model.k3} />
       </ContentGroup>
 
       <ContentGroup label="载荷计算">
-        <InputValue label="变形量" value={module.deformationAmount} />
-        <InputValue label="载荷" value={module.loadValue} display />
-        <InputValue label="刚度" value={module.stiffness} display />
+        <InputValue label="变形量" value={model.deformationAmount} />
+        <DisplayValue label="载荷" value={model.loadValue} />
+        <DisplayValue label="刚度" value={model.stiffness} />
       </ContentGroup>
 
       <ContentGroup label="各点应力">
-        <InputValue label="σOM" value={module.oOM} unit="Mpa" display />
-        <InputValue label="σⅠ" value={module.oI} unit="Mpa" display />
-        <InputValue label="σⅡ" value={module.oII} unit="Mpa" display />
-        <InputValue label="σⅢ" value={module.oIII} unit="Mpa" display />
-        <InputValue label="σⅣ" value={module.oIV} unit="Mpa" display />
+        <DisplayValue label="σOM" value={model.oOM} unit="Mpa" />
+        <DisplayValue label="σⅠ" value={model.oI} unit="Mpa" />
+        <DisplayValue label="σⅡ" value={model.oII} unit="Mpa" />
+        <DisplayValue label="σⅢ" value={model.oIII} unit="Mpa" />
+        <DisplayValue label="σⅣ" value={model.oIV} unit="Mpa" />
       </ContentGroup>
     </div>
   );
 };
 
-export default ButterflySpring;
+export default () => {
+  return <ButterflySpring model={new ButterflySpringModel()} />;
+};

@@ -12,3 +12,6 @@ export type OneArgFunctionT<T> = (data: T) => void;
 export enum SubPages {
   AboutPage = 'about',
 }
+
+
+export const appName_zh_CN = '工业弹簧速查助手';

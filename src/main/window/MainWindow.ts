@@ -43,7 +43,7 @@ export default class MainWindow extends WindowWrapper {
   private createApplicationMenu(): void {
     const template: any[] = [];
     const aboutSubMenu = {
-      label: app.getName(),
+      label: '应用',
       submenu: [
         { label: '关于', click: MainWindow.onAboutClicked.bind(this) },
         { type: 'separator' },

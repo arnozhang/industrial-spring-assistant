@@ -15,6 +15,7 @@ import {
   MenuUnfoldOutlined,
   PicCenterOutlined
 } from '@ant-design/icons';
+import { appName_zh_CN } from "@@/common/commonDeclares";
 import { ReactFC, ReactFCProps } from "@/common/renderDeclares";
 import { createMenu, INavMenu } from "@/common/menu";
 import zhCN from 'antd/es/locale/zh_CN';
@@ -66,7 +67,7 @@ const DashboardLayout = (props: ReactFCProps) => {
                 {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined)}
               </span>
 
-              <h2 className={styles.title}>工业弹簧速查助手</h2>
+              <h3 className={styles.title}>{appName_zh_CN}</h3>
             </div>
           </header>
 

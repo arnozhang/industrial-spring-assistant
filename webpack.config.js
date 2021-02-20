@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 
 
-const isProduction = process.env.NODE_ENV === 'prod';
+const isProduction = process.env.NODE_ENV === 'production';
 console.log(`\nbuild for ${process.env.NODE_ENV} environment...\n`);
 
 module.exports = {

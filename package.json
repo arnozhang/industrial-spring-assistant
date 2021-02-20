@@ -6,10 +6,11 @@
   "main": "./build/index.js",
   "scripts": {
     "build": "webpack",
-    "build-prod": "NODE_ENV=prod webpack --progress",
+    "build-prod": "NODE_ENV=production webpack --progress",
     "start": "electron .",
-    "package": "electron-builder -mw",
+    "package": "electron-builder -mwl",
     "package-mac": "electron-builder -m",
+    "package-linux": "electron-builder -l",
     "package-win": "electron-builder -w"
   },
   "keywords": [
@@ -66,12 +67,20 @@
       "target": [
         "dmg"
       ],
-      "artifactName": "${productName}.${ext}",
+      "artifactName": "${productName}-Mac-V${version}.${ext}",
       "icon": "./public/images/app-icon.icns"
     },
     "dmg": {
       "title": "${productName}",
-      "artifactName": "${productName}.${ext}",
+      "artifactName": "${productName}-Mac-V${version}.${ext}",
+      "icon": "./public/images/app-icon.icns"
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "category": "Science",
+      "artifactName": "${productName}-Linux-V${version}.${ext}",
       "icon": "./public/images/app-icon.icns"
     },
     "win": {
@@ -87,7 +96,7 @@
           ]
         }
       ],
-      "artifactName": "${productName}.${ext}",
+      "artifactName": "${productName}-Windows-V${version}.${ext}",
       "icon": "./public/images/app-icon.icns"
     },
     "nsis": {
@@ -97,7 +106,7 @@
       "runAfterFinish": true,
       "allowToChangeInstallationDirectory": true,
       "shortcutName": "工业弹簧速查助手",
-      "artifactName": "${productName}-installer-V${version}.${ext}"
+      "artifactName": "${productName}-Windows-V${version}.${ext}"
     }
   }
 }

@@ -28,7 +28,7 @@ export default class Application {
   }
 
   static isProd() {
-    return Application.appEnv === 'prod';
+    return Application.appEnv === 'production';
   }
 
   private initializeEvents() {

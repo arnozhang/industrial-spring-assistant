@@ -18,7 +18,7 @@ const AboutPage = () => {
         <img style={{ width: 50, height: 50 }} alt="logo"
              src="../images/app-icon.png" />
 
-        <span className={styles.appName}>${appName_zh_CN}</span>
+        <span className={styles.appName}>{appName_zh_CN}</span>
       </div>
 
       <span style={{ marginTop: 20, color: '#666' }}>

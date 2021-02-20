@@ -81,3 +81,14 @@ const DashboardLayout = (props: ReactFCProps) => {
 };
 
 export default DashboardLayout;
+
+
+export function wrapDashboardComponent(component: React.ComponentType<any>) {
+  return () => {
+    return (
+      <DashboardLayout>
+        {React.createElement(component)}
+      </DashboardLayout>
+    );
+  };
+}

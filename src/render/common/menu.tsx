@@ -17,6 +17,7 @@ export interface INavMenu {
 
   menuPath: string;
   displayName: string;
+  matchMenuPaths?: RegExp;
 
   icon?: string | React.ReactNode;
   menuUrl?: string | BuildMenuUrlFn;
@@ -45,14 +46,22 @@ export function findSelectedMenu(
       if (find) {
         return find;
       }
+    }
+
+    let matched = false;
+    const path = `/${item.menuPath}`;
+
+    if (item.matchMenuPaths) {
+      matched = item.matchMenuPaths.test(path);
     } else {
-      const path = `/${item.menuPath}`;
-      if (window.location.href.indexOf(path) > 0) {
-        return {
-          menuPath: item.menuPath,
-          parentMenuPath: parent?.menuPath,
-        };
-      }
+      matched = window.location.href.indexOf(path) > 0;
+    }
+
+    if (matched) {
+      return {
+        menuPath: item.menuPath,
+        parentMenuPath: parent?.menuPath,
+      };
     }
   }
 

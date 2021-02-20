@@ -6,7 +6,7 @@
  */
 
 import * as React from 'react';
-import { Route, Router } from 'react-router';
+import { Redirect, Route, Router } from 'react-router';
 import { createHashHistory, History } from 'history';
 import { parseUrlParams } from "@/common/utils";
 import { renderToHtml } from "@/common/renderDeclares";
@@ -29,7 +29,8 @@ const HomePageRouter = (props: IHomePageRouterProps) => {
 
   return (
     <Router history={props.history}>
-      <Route path="/" exact component={HomePageComponent} />
+      <Redirect from="/" to="/butterflySpring" />
+
       <Route path="/butterflySpring" component={HomePageComponent} />
       <Route path="/pullSpring" component={wrapDashboardComponent(PullSpring)} />
 
@@ -46,6 +47,4 @@ if (params.page === SubPages.AboutPage) {
 } else {
   const history = createHashHistory();
   renderToHtml(<HomePageRouter history={history} />);
-
-  history.push('/butterflySpring');
 }
